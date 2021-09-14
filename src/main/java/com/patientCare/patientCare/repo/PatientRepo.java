@@ -5,11 +5,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface PatientRepo extends JpaRepository<Patient,Long> {
-    Patient findPatinetById(Long id);
 
-    Patient findPatinetById(UUID id);
+
+    Optional<Patient> findPatientById(Long id);
+
+    Optional<Patient> findPatientById(UUID id);
 }

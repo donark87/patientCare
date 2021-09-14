@@ -28,10 +28,10 @@ public class PatientService {
         return patientRepo.findAll();
     }
     public Patient findPatientById(Long id){
-        return patientRepo.findPatinetById(id);
+        return patientRepo.findPatientById(id).orElseThrow(() -> new PatientNotFoundException("Patient by " + id + " not found"));
     }
     public Patient findPatientByUUId(UUID id){
-        return patientRepo.findPatinetById(id);
+        return patientRepo.findPatientById(id).orElseThrow(() -> new PatientNotFoundException("Patient by " + id + " not found"));
     }
     public Patient updatePatient(Patient patient){
         return patientRepo.save(patient);
