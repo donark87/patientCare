@@ -2,7 +2,8 @@ package com.patientCare.patientCare.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,8 +14,14 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Entity
-public class Patient {
+public class Patient implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Long id = null;
+
+    @Column(nullable = false, updatable = false)
     private UUID patientId = null;
 
     private Boolean active = null;
